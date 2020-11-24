@@ -1,0 +1,27 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:contact-validator="http://www.mulesoft.org/schema/mule/contact-validator"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/contact-validator http://www.mulesoft.org/schema/mule/contact-validator/current/mule-contact-validator.xsd">
+
+
+
+    <flow name="is-string-a-number-flow">
+
+        <ee:transform doc:name="Transform Message" doc:id="44b46a25-5786-4556-b218-480b99fba14a" >
+            <ee:message >
+                <ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{ "test" : "1234", "test2" : "12s34" }]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
+
+        <contact-validator:is-string-a-number content="#[attributes.errorList]" targetValue="#[attributes.errorList]" message="Test xx" expression="#[payload.test2]" fieldName="TEST FIELD"/>
+        <contact-validator:is-string-a-number content="#[attributes.errorList]" targetValue="#[attributes.errorList]" message="Test xx" expression="#[payload.test2]" fieldName="TEST FIELD"/>
+
+    </flow>
+
+
+
+</mule>
