@@ -18,18 +18,10 @@ public class ContactValidatorOperationsTestCase extends MuleArtifactFunctionalTe
   @Test
   public void executeSayHiOperation() throws Exception {
 
-    System.out.println("HERE");
 
- /*   String payloadValue = ((String) flowRunner("is-string-a-number-flow").run()
-                                      .getMessage()
-                                      .getPayload()
-                                      .getValue());
+  String payloadValue = ((String) flowRunner("is-string-a-number-flow").run().getMessage().getPayload().getValue());
 
-    System.out.println(flowRunner("is-string-a-number-flow").run()
-                    .getMessage()
-                    .getAttributes()
-            );
-    assertThat(payloadValue, is("Hello Mariano Gonzalez!!!"));*/
+    //assertThat(payloadValue, is("Hello Mariano Gonzalez!!!"));
   }
 
 }

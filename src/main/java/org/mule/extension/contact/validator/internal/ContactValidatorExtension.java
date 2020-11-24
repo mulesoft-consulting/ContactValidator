@@ -1,8 +1,11 @@
 package org.mule.extension.contact.validator.internal;
 
+import org.mule.extension.contact.validator.internal.error.ContactValidationErrorType;
+import org.mule.extension.contact.validator.internal.error.NotNumberError;
 import org.mule.runtime.extension.api.annotation.Extension;
 import org.mule.runtime.extension.api.annotation.Configurations;
 import org.mule.runtime.extension.api.annotation.dsl.xml.Xml;
+import org.mule.runtime.extension.api.annotation.error.ErrorTypes;
 
 
 /**
@@ -12,6 +15,7 @@ import org.mule.runtime.extension.api.annotation.dsl.xml.Xml;
 @Xml(prefix = "contact-validator")
 @Extension(name = "Contact Validator")
 @Configurations(ContactValidatorConfiguration.class)
+@ErrorTypes(ContactValidationErrorType.class)
 public class ContactValidatorExtension {
 
 }
